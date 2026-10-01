@@ -41,10 +41,10 @@ ul{margin:8px 0 16px 20px}
 <div class="card"><b class="title">Accessibility Service</b><p>Purpose: detect foreground app opens you selected, to show the break screen. We do NOT read keystrokes, messages, passwords, or screen content, and transmit nothing.</p></div>
 <div class="card"><b class="title">Usage Access (PACKAGE_USAGE_STATS)</b><p>Purpose: read Android UsageStatsManager locally to compute minutes in monitored apps and usage-free time. Never uploaded.</p></div>
 <div class="card"><b class="title">Display Over Other Apps</b><p>Purpose: render the challenge screen over a restricted app. Does not capture content underneath.</p></div>
-<div class="card"><b class="title">Installed Apps (QUERY_ALL_PACKAGES)</b><p>Purpose: list installed apps so you can choose what to monitor. Never profiled or sent anywhere.</p></div>
+<div class="card"><b class="title">Installed App List (launcher-visible only)</b><p>Purpose: list launchable apps so you can choose what to monitor. No broad package-visibility permission is requested. Never profiled or sent anywhere.</p></div>
 <div class="card"><b class="title">Ignore Battery Optimizations</b><p>Purpose: prevent OEM battery savers from killing detection. No data use.</p></div>
 <div class="card"><b class="title">Internet</b><p>Purpose: only to open Google Play Store page for app updates when you tap Update. Never used for telemetry or profiles.</p></div>
-<p><em>Note: FOREGROUND_SERVICE permission is declared but background monitoring uses AccessibilityService only, with no persistent notification or remote monitoring in v1.0.0.</em></p>
+<p><em>Note: ScrollBreak v1.0.0 does not run a foreground service. Background detection uses the AccessibilityService only, with no persistent notification and no remote monitoring.</em></p>
 
 <h2>4. Local Storage &amp; Deletion</h2>
 <ul>
