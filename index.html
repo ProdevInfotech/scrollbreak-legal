@@ -23,17 +23,18 @@ ul{margin:8px 0 16px 20px}
 <body>
 <div class="container">
 <h1>Privacy Policy — ScrollBreak</h1>
-<div class="meta">App: ScrollBreak: Beat Scrolling • Package: com.scrollbreak.app • Developer: ProDev Infotech • Effective: October 25, 2026 • Version 1.2.0</div>
+<div class="meta">App: ScrollBreak: Beat Scrolling • Package: com.scrollbreak.app • Developer: ProDev Infotech • Effective: October 28, 2026 • Version 1.2.1</div>
 
-<div class="banner">On-Device Guarantee: ScrollBreak's core features operate 100% on-device. Your usage data, the apps you protect and your challenge history never leave your phone. Three named exceptions only: the optional public-holiday lookup (Section 3), <strong>Google AdMob</strong> for the free plan's ads (Section 9), and <strong>RevenueCat</strong> for Pro purchase verification (Section 8). ScrollBreak Pro makes no ad requests at all. Play Data Safety: purchase history and device or other IDs are collected for Pro billing and advertising; nothing else leaves your device.</div>
+<div class="banner">On-Device Guarantee: ScrollBreak's core features operate 100% on-device. Your usage data, the apps you protect and your challenge history never leave your phone. Four named exceptions only: the optional public-holiday lookup (Section 3), <strong>Google AdMob</strong> for the free plan's ads (Section 9), <strong>RevenueCat</strong> for Pro purchase verification (Section 8), and <strong>Google Firebase</strong> for crash diagnostics on every plan plus consent-gated free-plan analytics (Section 10). ScrollBreak Pro makes no ad requests and sends no analytics events. Play Data Safety: purchase history, device or other IDs, app interactions and crash logs are collected for billing, advertising, analytics and diagnostics; nothing else leaves your device.</div>
 
 <h2>1. Overview &amp; Core Philosophy</h2>
-<p>ScrollBreak is built to foster mindful digital wellbeing and intentional habits. We believe that personal focus and digital privacy should never be compromised. Apart from optional Pro billing (Section 8), the optional public-holiday lookup described in Section 3, and the free plan's ads (Section 9), the app functions locally on your device — no user accounts, no cloud database of your habits, no telemetry analytics.</p>
+<p>ScrollBreak is built to foster mindful digital wellbeing and intentional habits. We believe that personal focus and digital privacy should never be compromised. Apart from optional Pro billing (Section 8), the optional public-holiday lookup described in Section 3, the free plan's ads (Section 9), and Google Firebase crash diagnostics plus consent-gated free-plan analytics (Section 10), the app functions locally on your device — no user accounts and no cloud database of your habits.</p>
 
 <h2>2. Third-Party Data Sharing</h2>
 <ul>
 <li><strong>No data brokers:</strong> we do not sell, rent, or transmit your usage habits, blocked-app list, or device data to any marketing network or data broker.</li>
-<li><strong>No analytics or tracking SDKs:</strong> there are no third-party telemetry tools, crash reporters or attribution frameworks embedded in ScrollBreak.</li>
+<li><strong>Product analytics (Google Firebase Analytics) — free plan, consent-gated:</strong> used to understand which screens and challenges help people and how the free plan's ads perform. It is switched on only when the advertising consent gate allows collection, and never for Pro. Event payloads contain no usage history, protected-app names, challenge content, moods or settings. Full detail in Section 10.</li>
+<li><strong>Crash diagnostics (Google Firebase Crashlytics) — everyone:</strong> crash stack traces, device model/OS, app version and a few non-personal app-state keys (Pro or free, number of protected apps, block interval, ad flags, challenge preference). No usage history, no protected-app names, no account and no advertising profile. Full detail in Section 10.</li>
 <li><strong>Advertising (Google AdMob), free plan only:</strong> the free plan shows one banner on the Challenges tab and an optional rewarded ad. Google receives ad-request data such as your advertising ID, IP address and device information — never your usage data. Full detail in Section 9.</li>
 <li><strong>Billing processors only:</strong> if you buy ScrollBreak Pro, Google Play processes the payment and RevenueCat verifies the purchase (Section 8).</li>
 <li><strong>No cloud sync:</strong> your usage records, challenge completions, and configuration stay inside your device's sandboxed storage.</li>
@@ -50,7 +51,7 @@ ul{margin:8px 0 16px 20px}
 
 <div class="card"><b class="title">Ignore Battery Optimizations</b><p>Purpose: prevent OEM battery managers from terminating background detection during active sessions. No data use.</p></div>
 
-<div class="card"><b class="title">Internet (INTERNET)</b><p>Purpose: (a) user-directed app updates and update checks, (b) an optional public-holiday lookup that sends only a country code and year to keep festival spotlight dates accurate — cached for 7 days, with silent fallback to built-in dates on any failure, and (c) Google Play billing and RevenueCat verification if you buy Pro.</p><p><b>Privacy guarantee:</b> never used to transmit telemetry, analytics, or personal profiles. No personal data is sent to the holiday service.</p></div>
+<div class="card"><b class="title">Internet (INTERNET)</b><p>Purpose: (a) user-directed app updates and update checks, (b) an optional public-holiday lookup that sends only a country code and year to keep festival spotlight dates accurate — cached for 7 days, with silent fallback to built-in dates on any failure, (c) Google Play billing and RevenueCat verification if you buy Pro, and (d) Google Firebase crash diagnostics for every plan plus consent-gated product analytics on the free plan (never Pro).</p><p><b>Privacy guarantee:</b> never used to transmit your usage history, protected-app list, challenge content or personal profile. Firebase analytics events contain none of that data and are collected only when the ad-consent gate allows it. No personal data is sent to the holiday service.</p></div>
 
 <p><em>Note: ScrollBreak 1.1.0 does not run a foreground service. Background detection uses the AccessibilityService only, with no persistent notification and no remote monitoring.</em></p>
 
@@ -99,7 +100,16 @@ ul{margin:8px 0 16px 20px}
 <p><strong>ScrollBreak Pro removes ads entirely:</strong> on Pro, the ads SDK is never initialised and the app makes no ad requests at all.</p>
 <p><strong>What is never sent to Google:</strong> your accessibility events, the apps you protect, your usage history, your challenge history, or your settings. Ad requests contain none of that data.</p>
 
-<h2>10. Contact Us</h2>
+<h2>10. Analytics &amp; Crash Diagnostics (Google Firebase)</h2>
+<p>ScrollBreak uses two Google Firebase services. They act as processors on our behalf; Google's Privacy Policy (policies.google.com/privacy) and Firebase's data-processing terms apply.</p>
+<p><strong>Firebase Analytics — free plan only, after consent:</strong> used to understand which screens and challenges help people and how the free plan's ads perform, so we can improve both. Collection is disabled at app start. Where consent is required (EEA, UK, Switzerland) it is enabled only after you answer Google's consent form; declining keeps it off. You can withdraw at any time via Settings &gt; Legal &amp; Privacy &gt; Ad privacy options, which also stops analytics. It is never enabled for ScrollBreak Pro.</p>
+<p><strong>What Analytics records:</strong> an app-instance identifier generated by Firebase (not your Google account and not your advertising ID), device and app metadata (model, OS version, app version, language, coarse region derived from IP), and a small set of product events: paywall viewed, Pro purchase completed (tier name only), rewarded-ad prompt shown/accepted, rewarded unlock granted, ad load failed (format and error code), challenge started/solved (challenge type, block or practice, solve time), plus Google's automatic ad-impression and revenue events from AdMob.</p>
+<p><strong>What Analytics never records:</strong> your usage history, the names of apps you protect, challenge content or drawings, moods, your settings, your email or any account identifier.</p>
+<p><strong>Firebase Crashlytics — everyone:</strong> used only to find and fix crashes and ANRs. A report may contain the crash stack trace, device model, OS version, app version, a Firebase installation identifier, and the non-personal app-state keys listed in Section 2. It is not used for advertising or profiling, and it never includes your usage history or protected-app names.</p>
+<p><strong>Retention:</strong> Analytics events and Crashlytics reports are retained by Google according to the retention settings of the Firebase project; we do not keep a separate copy.</p>
+<p><strong>Pro:</strong> Pro users make no analytics requests. Crash diagnostics remain on so a crash can be fixed for paying users too.</p>
+
+<h2>11. Contact Us</h2>
 <p>Email: app.prodevinfotech@gmail.com<br>App: ScrollBreak (com.scrollbreak.app)</p>
 
 <div class="footer">ScrollBreak • Intentional habits, on-device privacy by design.</div>
